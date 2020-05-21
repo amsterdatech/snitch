@@ -1,0 +1,13 @@
+image: beblue/android-sdk:29-test
+
+pipelines:
+  default:
+    - step:
+        image:
+          name: beblue/android-sdk:29-test
+          username: $DOCKER_USERNAME
+          password: $DOCKER_PASSWORD
+        caches:
+          - gradle
+        script:
+          - bash ./gradlew assembleRelease
